@@ -66,6 +66,7 @@ The following structure is flexible and can be modified based on project require
 ## Repository Structure
 
 We will follow the below structure for our repository. This structure is flexible and can be modified depending on the specific requirements of the project:
+For CI/CD, we are currently using Jenkins. If you choose to use GitHub Actions instead, you can create a workflow folder in the root of the repository to define your CI/CD workflow and inside it create yaml file.
 
 ```plaintext
 repo-root/
