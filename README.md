@@ -113,6 +113,19 @@ repo-root/
 ```
 For further understanding and ease of setup, a template.py file has been provided. Run this script to automatically generate the directory structure as defined above.
 A sample Dockerfile and a sample jenkins.dev file have been provided in the repository. These can be modified as per your project’s requirements.
+
+## Here’s a description of the Jenkins pipeline workflow:
+
+- **Checkout Code**: Retrieves the latest code from the repository.
+- **Data Ingestion**: Executes data_ingestion.py to import raw data.
+- **Preprocessing**: Runs data_preprocessing.py to clean and preprocess the raw data.
+- **Feature Engineering**: Executes feature_engineering.py to generate features from the processed data.
+- **Model Training**: Runs train_model.py to train the model using the engineered features.
+- **Build Docker Image**: Builds a Docker image with the trained model.
+- **Push Docker Image**: Pushes the Docker image to a registry.
+- **Deploy to OCP**: Deploys the Docker image to OpenShift for production use.
+  
+This workflow ensures that data is processed sequentially, and the model is trained and deployed efficiently.
 ## 3. Git Branching Strategy
 
 ### Branch Creation:
