@@ -1,6 +1,6 @@
 # Project Documentation
 
-Welcome to our project! This document provides a structured approach to optimizing our development process. It covers key areas essential for maintaining efficiency, clarity, and code quality throughout our project. Specifically, we will discuss:
+Welcome to our project! This document provides a structured approach to optimizing our CICD development process. It covers key areas essential for maintaining efficiency, clarity, and code quality throughout our project. Specifically, we will discuss:
 
 - Issue Tracking Workflow
 - Repository Structure and Organization
