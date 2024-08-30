@@ -1,0 +1,74 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_REGISTRY = '<your-docker-registry>'
+        DOCKER_IMAGE = 'mlops-project'
+        OCP_PROJECT = '<your-ocp-project>'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the repository
+                git branch: 'main', url: 'https://<your-repo-url>.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Install necessary dependencies for the build process (if needed)
+                sh 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build the Docker image
+                    sh "docker build -t ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:latest ."
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    // Log in to Docker registry
+                    sh "echo $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USERNAME --password-stdin $DOCKER_REGISTRY"
+
+                    // Push the Docker image to the registry
+                    sh "docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:latest"
+                }
+            }
+        }
+
+        stage('Deploy to OCP') {
+            steps {
+                script {
+                    // Log in to OCP
+                    sh "oc login --token=$OCP_TOKEN --server=$OCP_SERVER"
+
+                    // Switch to the OCP project
+                    sh "oc project ${OCP_PROJECT}"
+
+                    // Deploy the application using the new Docker image
+                    sh "oc set image dc/mlops-deployment ${DOCKER_IMAGE}=${DOCKER_REGISTRY}/${DOCKER_IMAGE}:latest"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up workspace
+            cleanWs()
+        }
+        success {
+            echo 'Deployment Successful!'
+        }
+        failure {
+            echo 'Deployment Failed!'
+        }
+    }
+}
