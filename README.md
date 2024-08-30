@@ -60,13 +60,9 @@ Managing multiple features, bugs, and enhancements can be challenging. To simpli
 - **Improved Collaboration**: Enhances visibility and collaboration.
 
 ## 2. Repository Structure
-
-The following structure is flexible and can be modified based on project requirements:
-
-## Repository Structure
-
-We will follow the below structure for our repository. This structure is flexible and can be modified depending on the specific requirements of the project:
-For CI/CD, we are currently using Jenkins. If you choose to use GitHub Actions instead, you can create a workflow folder in the root of the repository to define your CI/CD workflow and inside it create yaml file.
+We will follow the below flexible structure for our repository that can be modified depending on the specific requirements of the project:
+For CI/CD, we are currently using Jenkins. 
+- Note: If you choose to use GitHub Actions instead, you can create a workflow folder in the root of the repository and inside it create yaml file to define your CI/CD workflow.
 
 ```plaintext
 repo-root/
