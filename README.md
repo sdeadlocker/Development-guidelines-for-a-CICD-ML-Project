@@ -112,6 +112,7 @@ repo-root/
 
 ```
 For further understanding and ease of setup, a template.py file has been provided. Run this script to automatically generate the directory structure as defined above.
+A sample Dockerfile and a sample jenkins.dev file have been provided in the repository. These can be modified as per your project’s requirements.
 ## 3. Git Branching Strategy
 
 ### Branch Creation:
