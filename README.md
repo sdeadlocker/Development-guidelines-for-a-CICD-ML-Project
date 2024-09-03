@@ -67,7 +67,7 @@ For CI/CD, we are currently using Jenkins.
 ```plaintext
 repo-root/
 │
-├── .jenkins/                        # Jenkins pipeline-related files
+├── jenkins/                        # Jenkins pipeline-related files
 │   ├── Jenkinsfile
 │   └── manifest.yaml
 │
