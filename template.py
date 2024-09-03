@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 # Define a list of folders and files
 paths = [
-    ".jenkins/Jenkinsfile",                       # Jenkins pipeline definition
+    "jenkins/Jenkinsfile",                       # Jenkins pipeline definition
     "config/dev.env",                             # Dev environment config
     "data/raw/",                                  # data directory
     "data/processed/",                            
